@@ -20,3 +20,24 @@ So let’s just simply start the docker service
 Now just to verify that docker is successfully running, let me show you how to pull a CentOS image from docker hub and run the CentOS container. For that, just type in the below command:
 
 5.sudo docker pull centos
+
+========================================
+
+
+##Frequently used Docker commands
+
+docker run: Run a Docker container from an image.
+docker build: Build a Docker image from a Dockerfile.
+docker ps: List running containers.
+docker images: List all Docker images on the host.
+docker stop: Stop a running container.
+docker start: Start a stopped container.
+docker rm: Remove a container.
+docker rmi: Remove an image.
+docker exec: Run a command in a running container.
+docker logs: View the logs of a running container.
+docker pull: Pull an image from a registry.
+docker push: Push an image to a registry.
+docker inspect: Inspect a container or image.
+docker network: Manage Docker networks.
+docker-compose: Run multi-container Docker applications with a YAML file.
