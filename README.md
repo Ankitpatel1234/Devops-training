@@ -45,3 +45,28 @@ docker-compose: Run multi-container Docker applications with a YAML file.
 
 
 ## Kubernetes Training
+Kubernetes architecture consists of several components that work together to manage containers:
+
+Nodes: Nodes are the individual servers that run your containerized applications. Each node runs a container runtime, such as Docker, to manage containers.
+
+Control plane: The control plane is responsible for managing the Kubernetes cluster's overall state. It includes components like the API server, etcd, controller manager, and scheduler.
+
+API server: The API server acts as the frontend for the Kubernetes control plane. It exposes the Kubernetes API, which is used by Kubernetes clients to interact with the cluster.
+
+etcd: etcd is a distributed key-value store used to store the Kubernetes cluster's state.
+
+Controller manager: The controller manager is responsible for running controllers that monitor the state of the cluster and make changes to bring it to the desired state.
+
+Scheduler: The scheduler assigns workloads to nodes based on available resources and workload requirements.
+
+Pods: Pods are the smallest deployable units in Kubernetes. They contain one or more containers and share the same network namespace and storage volumes.
+
+Services: Services provide a stable IP address and DNS name for a set of pods. They enable communication between pods and with external clients.
+
+Once you have a good understanding of Kubernetes architecture and components, you can start learning how to deploy, manage, and scale containerized applications on Kubernetes.
+
+
+
+
+Regenerate response
+
