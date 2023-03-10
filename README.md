@@ -1,6 +1,6 @@
 # Devops-training
 Devops-training
-##Docker-Installation
+## Docker-Installation
 
 To install docker on Ubuntu box, first let us update the packages.
  1.sudo apt-get update
@@ -24,7 +24,7 @@ Now just to verify that docker is successfully running, let me show you how to p
 ========================================
 
 
-##Frequently used Docker commands
+## Frequently used Docker commands
 
 docker run: Run a Docker container from an image.
 docker build: Build a Docker image from a Dockerfile.
@@ -41,3 +41,7 @@ docker push: Push an image to a registry.
 docker inspect: Inspect a container or image.
 docker network: Manage Docker networks.
 docker-compose: Run multi-container Docker applications with a YAML file.
+
+
+
+## Kubernetes Training
