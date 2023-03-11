@@ -148,8 +148,12 @@ spec:
     activeService: my-app-blue
     previewService: my-app-green
     scaleDownDelaySeconds: 30
+    
+    
     ```
-=================================
+
+# Readiness and Liveliness probe in K8S
+
 
 The readinessProbe and livenessProbe are two important fields in a Kubernetes Pod or Deployment YAML file. They are used to check the health of the container running inside a Pod, and determine if the Pod is ready to accept traffic or if it needs to be restarted.
 
