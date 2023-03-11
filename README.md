@@ -106,3 +106,55 @@ Blue-Green Deployment: In this deployment strategy, you create two identical env
 
 Canary Deployment: In a canary deployment, you roll out the new version of the application to a small percentage of the users or traffic. This enables you to test the new version in a real environment and gather feedback before rolling it out to all users or traffic. If the new version passes the canary test, it can be gradually rolled out to all the users or traffic. If not, the deployment can be rolled back to the previous version. This strategy minimizes downtime and risk during the update.
 
+## Sample deployment yaml for k8s
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-app-container
+        image: my-app:v1
+        ports:
+        - containerPort: 8080
+      readinessProbe:
+        httpGet:
+          path: /health
+          port: 8080
+        initialDelaySeconds: 5
+        periodSeconds: 10
+      livenessProbe:
+        httpGet:
+          path: /health
+          port: 8080
+        initialDelaySeconds: 30
+        periodSeconds: 60
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  blueGreenDeploy:
+    activeService: my-app-blue
+    previewService: my-app-green
+    scaleDownDelaySeconds: 30
+=================================
+
+The readinessProbe and livenessProbe are two important fields in a Kubernetes Pod or Deployment YAML file. They are used to check the health of the container running inside a Pod, and determine if the Pod is ready to accept traffic or if it needs to be restarted.
+
+The readinessProbe is used to determine if the container is ready to accept incoming traffic. It does this by making an HTTP GET request to a specified path on a specified port. If the response is successful (i.e., returns a 2xx HTTP status code), the container is considered ready to receive traffic. The initialDelaySeconds field specifies the number of seconds to wait before the first probe is performed, while the periodSeconds field specifies the frequency of subsequent probes.
+
+The livenessProbe is used to determine if the container is still running and responding to requests. It also makes an HTTP GET request to a specified path on a specified port, but if the response is not successful, the container is considered to have failed and will be restarted. The initialDelaySeconds and periodSeconds fields work the same way as for the readinessProbe.
+
+By including these probes in your Kubernetes YAML file, you can ensure that your containers are healthy and ready to handle traffic, and automatically restart them if they fail.
+
