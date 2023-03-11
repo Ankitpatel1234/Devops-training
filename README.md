@@ -75,3 +75,21 @@ LoadBalancer: This type of Service provides a way to expose the Pods to the outs
 
 In summary, Services in Kubernetes provide a way to expose Pods as network services within a Kubernetes cluster and enable communication between them. The type of Service that you choose depends on the use case and the requirements of the application.
 
+## K8S Deployment
+
+In Kubernetes, a Deployment is a higher-level abstraction that manages a set of replicated Pods. A Deployment describes the desired state of the application, including the number of replicas, the image version, and the update strategy, and ensures that the actual state matches the desired state.
+
+Deployments are important because they provide a way to manage and update applications running on Kubernetes without causing downtime or service disruption. When a Deployment is created, Kubernetes creates a set of identical Pods, and if one of the Pods fails, Kubernetes automatically replaces it with a new one. Deployments also provide a way to manage rolling updates, where a new version of the application is gradually deployed across the replicas, ensuring that the application remains available throughout the update.
+
+Here are the key components of a Kubernetes Deployment:
+
+Pod Template: A Deployment manages a set of replicated Pods based on a Pod template. The Pod template defines the container image, the container ports, and any other configuration for the application.
+
+ReplicaSet: The ReplicaSet is a Kubernetes resource that manages a set of identical Pods. When a Deployment is created, it creates a ReplicaSet that manages the initial set of Pods based on the Pod template. The ReplicaSet ensures that the desired number of replicas are always running, and automatically replaces any failed Pods.
+
+Update Strategy: The update strategy defines how the Deployment handles updates to the application. There are two main update strategies: RollingUpdate, which gradually updates the replicas with new versions of the application, and Recreate, which deletes and recreates all replicas with the new version of the application.
+
+Rolling Update Configuration: When using the RollingUpdate update strategy, you can configure the Deployment to control the speed of the update, the number of Pods that are updated at once, and the number of old replicas that are retained during the update.
+
+In summary, Kubernetes Deployment provides a way to manage and update a set of replicated Pods. It ensures that the desired state of the application is always maintained, and provides a way to update the application without causing downtime or service disruption.
+
