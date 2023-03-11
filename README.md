@@ -93,3 +93,16 @@ Rolling Update Configuration: When using the RollingUpdate update strategy, you 
 
 In summary, Kubernetes Deployment provides a way to manage and update a set of replicated Pods. It ensures that the desired state of the application is always maintained, and provides a way to update the application without causing downtime or service disruption.
 
+## K8s Deployment strategy
+
+
+Kubernetes provides several deployment strategies that you can use to manage and update your application deployments. These strategies help you to minimize downtime and maintain service availability during updates. Here are the main deployment strategies in Kubernetes:
+
+Recreate: This is the simplest and most straightforward deployment strategy. When you use this strategy, Kubernetes stops all the Pods of the current version of the deployment and creates new Pods with the updated version of the application. This method can result in some downtime while the old Pods are terminated and new ones are started.
+
+RollingUpdate: This deployment strategy gradually updates the Pods in the Deployment with new versions of the application. Kubernetes replaces the old Pods with the new ones in a rolling fashion, so that there is always a minimum number of available Pods. Rolling updates can be configured with various parameters such as the number of replicas that can be updated at once, the maximum number of Pods that can be unavailable during the update, and the maximum number of Pods that can be created at once. This strategy minimizes downtime and ensures that the application remains available during the update.
+
+Blue-Green Deployment: In this deployment strategy, you create two identical environments for your application, one in production and one in staging. The production environment, known as the "blue" environment, is currently serving traffic, while the staging environment, known as the "green" environment, is not receiving traffic. Once the new version of the application has been deployed to the green environment, traffic is gradually shifted from the blue environment to the green environment, until all the traffic is served by the green environment. This strategy ensures zero downtime during the update, but requires more infrastructure resources.
+
+Canary Deployment: In a canary deployment, you roll out the new version of the application to a small percentage of the users or traffic. This enables you to test the new version in a real environment and gather feedback before rolling it out to all users or traffic. If the new version passes the canary test, it can be gradually rolled out to all the users or traffic. If not, the deployment can be rolled back to the previous version. This strategy minimizes downtime and risk during the update.
+
