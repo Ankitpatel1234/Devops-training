@@ -151,6 +151,7 @@ spec:
     
     
     ```
+     ```hcl
 
 # Readiness and Liveliness probe in K8S
 
