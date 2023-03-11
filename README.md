@@ -164,3 +164,31 @@ The livenessProbe is used to determine if the container is still running and res
 
 By including these probes in your Kubernetes YAML file, you can ensure that your containers are healthy and ready to handle traffic, and automatically restart them if they fail.
 
+
+## K8s Commands
+
+check the path  abd move into the path where yokur files reside
+
+
+1) login into cluster
+
+2) kubectl apply -f namespace.yaml
+
+3) kubectl apply -f deployment.yaml -n test
+ 
+4) kubectl get deployment -n test  - check the status of deployment
+
+5) kubectl get pods -n test    -n check the status of pods
+
+6) kubectl describe deployment my-deployment -n test    -> to get more info about the deployemnt
+
+7) kubectl describe pods pods_name -n test   - > to get additional information about the pod
+
+8) kubectl logs -f pod_name -n test   -> to check the pods logs
+
+9) kubectl exec -it my-deployment-6666bdbb49-5tl8b -n test -c my-container -- bash    -> getting inside the container of the pod
+
+10) kubectl apply -f service.yaml  
+
+11) kubectl get service -n test
+
