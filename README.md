@@ -107,7 +107,7 @@ Blue-Green Deployment: In this deployment strategy, you create two identical env
 Canary Deployment: In a canary deployment, you roll out the new version of the application to a small percentage of the users or traffic. This enables you to test the new version in a real environment and gather feedback before rolling it out to all users or traffic. If the new version passes the canary test, it can be gradually rolled out to all the users or traffic. If not, the deployment can be rolled back to the previous version. This strategy minimizes downtime and risk during the update.
 
 ## Sample deployment yaml for k8s
-
+```hcl
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -148,6 +148,7 @@ spec:
     activeService: my-app-blue
     previewService: my-app-green
     scaleDownDelaySeconds: 30
+    ```
 =================================
 
 The readinessProbe and livenessProbe are two important fields in a Kubernetes Pod or Deployment YAML file. They are used to check the health of the container running inside a Pod, and determine if the Pod is ready to accept traffic or if it needs to be restarted.
